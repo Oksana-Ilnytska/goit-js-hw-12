@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 
-import { getImagesByQuery } from './pixabay-api.js';
+import { getImagesByQuery } from './src/pixabay-api.js';
 import {
   createGallery,
   clearGallery,
@@ -10,7 +10,7 @@ import {
   hideLoader,
   showLoadMoreButton,
   hideLoadMoreButton,
-} from './render-functions.js';
+} from './src/render-functions.js';
 
 const searchForm = document.getElementById('search-form');
 const loadMoreBtn = document.getElementById('load-more');
