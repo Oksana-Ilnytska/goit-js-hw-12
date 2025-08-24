@@ -1,10 +1,10 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const gallery = document.querySelector('.gallery');
-
-
-const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
+export let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 export function createGallery(images) {
   const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
@@ -45,24 +45,4 @@ export function showLoadMoreButton() {
 export function hideLoadMoreButton() {
   loadMoreBtn.classList.add('hidden');
 }
-
-/*
-let loadBtn;
-export function showLoadMoreButton() { 
-  if (!loadBtn) {
-    const loadBtn = document.createElement('button');
-    loadBtn.type = 'button';
-    loadBtn.textContent = 'Load more';
-    main.appendChild(loadBtn);
-  }
-}
-
-export function hideLoadMoreButton() {
-  if (loadBtn) {
-    loadBtn.remove();
-    loadBtn = null;
-  }
-}
-
-*/
 

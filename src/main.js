@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 
-import { getImagesByQuery } from './pixabay-api.js';
+import { getImagesByQuery } from './js/pixabay-api.js';
 import {
   createGallery,
   clearGallery,
@@ -10,10 +10,10 @@ import {
   hideLoader,
   showLoadMoreButton,
   hideLoadMoreButton,
-} from './render-functions.js';
+} from './js/render-functions.js';
 
-const searchForm = document.getElementById('search-form');
-const loadMoreBtn = document.getElementById('load-more');
+const searchForm = document.querySelector('.form');
+const loadMoreBtn = document.querySelector('.load-more');
 
 let currentQuery = '';
 let currentPage = 1;
@@ -23,10 +23,9 @@ searchForm.addEventListener('submit', async e => {
   clearGallery();
   hideLoadMoreButton();
 
-  currentQuery = e.target.elements.search.value.trim();
+  currentQuery = e.target.elements['search-text'].value.trim();
   if (!currentQuery) {
     iziToast.warning({
-      title: 'Oops',
       message: 'Please enter a search query',
     });
     return;
@@ -48,13 +47,14 @@ async function fetchAndRenderImages(isLoadMore = false) {
 
     if (data.totalHits === 0) {
       iziToast.info({
-        title: 'No results',
         message: 'No images found for this query',
       });
       return;
     }
 
     createGallery(data.hits);
+
+    
 
     // показуємо або ховаємо кнопку Load more
     if (currentPage * 9 >= data.totalHits) {
