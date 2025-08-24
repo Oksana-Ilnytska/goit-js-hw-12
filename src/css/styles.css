@@ -7,12 +7,152 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; 
+  margin: 36px auto;
+  max-width: 270px;
+}
+
+.form input[type="text"] {
+  flex: 1; 
+  padding: 10px 15px;
+  border: 2px solid #808080;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form input[type="text"]:hover {
+border-color: #000000;
+}
+
+
+.form input[type="text"]:focus {
+  outline: none;
+  border-color: #4E75FF; 
+}
+
+
+
+.form button {
+  padding: 10px 20px;
+  background: #4a90e2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.form button:hover {
+  background: #6C8CFF;
+  transform: translateY(-2px);
+}
+
+.form button:active {
+  transform: translateY(0);
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-template-rows: repeat(3, auto);   /* 3 lignes */
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 1128px; /* largeur fixe pour centrer la galerie */
+}
+.gallery-item {
+  display: flex;              
+  gap: 4px;  
+  text-align: justify;
+  flex-direction: column; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+  width: 100%;    
+  height: 200px;
+   
+  border-radius: 8px;
+  display: block;
+
+}
+
+.info {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #333; 
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.loader {
+  text-align: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+.load-more {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: none;
+  background: #2196f3;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.load-more.hidden {
+  display: none;
+}
+
+.loader {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+
+.error-toast .iziToast-close {
+  color: #fff;       
+  font-size: 16px;      
+}
+
+
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
